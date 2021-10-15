@@ -15,13 +15,13 @@ FLUSH PRIVILEGES;
 ```
 5. Run the container
 ```
-sudo docker run -p 8080:8080 -v "$PWD/wordpress":/var/www aapjeisbaas/wp-nginx-unit:latest
+sudo docker run -p 8080:8080 -v "$PWD/wordpress":/var/www registry.gitlab.com/aapjeisbaas/wp-nginx-unit:latest
 ```
 
 ## custom nginx unit config
 If the default unit config isn't what you're looking for simply mount a different config file in place.
 ```
-sudo docker run -p 8080:8080 -v "$PWD/config.json":/docker-entrypoint.d/config.json -v "$PWD/wordpress":/var/www aapjeisbaas/wp-nginx-unit:latest
+sudo docker run -p 8080:8080 -v "$PWD/config.json":/docker-entrypoint.d/config.json -v "$PWD/wordpress":/var/www registry.gitlab.com/aapjeisbaas/wp-nginx-unit:latest
 ```
 
 ## database

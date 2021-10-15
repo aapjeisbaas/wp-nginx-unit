@@ -3,5 +3,5 @@ RUN curl -sSLf \
         -o /usr/local/bin/install-php-extensions \
         https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions && \
     chmod +x /usr/local/bin/install-php-extensions && \
-    install-php-extensions gd opcache intl mysqli zip bcmath imagick exif mcrypt bz2 calendar ctype curl date dom zlib zip xsl xmlwriter xmlreader xml tokenizer tidy spl soap simplexml session reflection pspell posix phar pdo_sqlite sqlite3 pdo_mysql pdo pcre openssl mysqlnd mysqli mbstring libxml json intl imap iconv hash gettext ftp filter fileinfo exif dom date curl ctype
+    install-php-extensions bcmath bz2 calendar core ctypectype curl date dom exif fileinfo filter ftp gd gettext hash iconv imagick imap intl json libxml mbstring mcrypt mysqli mysqlnd opcache openssl pcre pdo pdo_mysql pdo_sqlite phar posix pspell reflection session simplexml soap sodium spl sqlite3 standard tidy tokenizer xml xmlreader xmlwriter xsl zend+opcache zip zlib
 COPY config.json /docker-entrypoint.d/ 

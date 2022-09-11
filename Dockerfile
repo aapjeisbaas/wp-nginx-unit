@@ -1,4 +1,4 @@
-FROM nginx/unit:1.26.1-php8.0
+FROM nginx/unit:1.25.0-php8.0
 RUN curl -sSLf \
         -o /usr/local/bin/install-php-extensions \
         https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions && \

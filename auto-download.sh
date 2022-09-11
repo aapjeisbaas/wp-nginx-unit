@@ -7,4 +7,6 @@ if [ ! -f "/var/www/index.php" ]; then
     tar -xf /tmp/latest.tar.gz -C /tmp/
     mv /tmp/wordpress/* /var/www
     chown -R unit:unit /var/www
+else
+    echo "Not downloading wordpress, found an index.php file in /var/www/"
 fi

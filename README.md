@@ -32,3 +32,18 @@ There is no database in this container image, use a sepperate mysql instance to 
 root@wordpress-deployment-75cf67fcd9-pbw24:/# id unit
 uid=101(unit) gid=101(unit) groups=101(unit)
 ```
+
+
+## magic juicy to fix https and domain in wp-config.php
+
+```
+define( 'WP_HOME', 'https://example.com' );
+define( 'WP_SITEURL', 'https://example.com' );
+
+// If we're behind a proxy server and using HTTPS, we need to alert Wordpress of that fact
+// see also http://codex.wordpress.org/Administration_Over_SSL#Using_a_Reverse_Proxy
+if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') {
+	$_SERVER['HTTPS'] = 'on';
+}
+
+```

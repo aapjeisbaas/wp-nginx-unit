@@ -1,4 +1,9 @@
 {
+    "settings": {
+        "http": {
+            "max_body_size": 26214400
+        }
+    },
     "listeners": {
         "*:8080": {
             "pass": "routes"

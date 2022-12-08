@@ -47,3 +47,13 @@ if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROT
 }
 
 ```
+
+
+## change site URL
+> first change the wp-config.php url tot the new one.
+```
+# docs: https://developer.wordpress.org/cli/commands/search-replace/
+# shell into the container and run
+
+cd /var/www/ ; wp --allow-root search-replace 'https://dev.example.com' 'https://example.com' --skip-columns=guid
+```

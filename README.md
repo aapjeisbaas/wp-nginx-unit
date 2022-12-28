@@ -18,6 +18,12 @@ FLUSH PRIVILEGES;
 sudo docker run -p 8080:8080 -v "$PWD/wordpress":/var/www registry.gitlab.com/aapjeisbaas/wp-nginx-unit:latest
 ```
 
+## Boost performance
+1. install [wp-super-cache](https://wordpress.org/plugins/wp-super-cache/)
+2. Change cache path to: `/tmp/wpsupercache/` **This cache will be gone after every restart, as far as I can see this has no negative side effects but the local storage is often faster then shared storage.**
+3. Set cache timeout to: `0`
+4. Enable preload
+
 ## custom nginx unit config
 If the default unit config isn't what you're looking for simply mount a different config file in place.
 ```

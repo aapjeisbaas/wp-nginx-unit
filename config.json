@@ -6,6 +6,11 @@
     },
     "listeners": {
         "*:8080": {
+            "forwarded": {
+                "protocol": "X-Forwarded-Proto",
+                "client_ip": "X-Forwarded-For",
+                "source": ["0.0.0.0/0"]
+            },
             "pass": "routes"
         }
 

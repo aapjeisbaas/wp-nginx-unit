@@ -32,7 +32,7 @@
         },
         {
             "action": {
-                "share": "/var/www/",
+                "share": "/var/www/$uri",
                 "fallback": {
                     "pass": "applications/wordpress/index"
                 }

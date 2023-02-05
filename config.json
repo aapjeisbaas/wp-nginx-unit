@@ -20,6 +20,17 @@
         {
             "match": {
                 "uri": [
+                    "/xmlrpc.php"
+                ]
+            },
+
+            "action": {
+                "return": 404
+            }
+        },
+        {
+            "match": {
+                "uri": [
                     "*.php",
                     "*.php/*",
                     "/wp-admin/"

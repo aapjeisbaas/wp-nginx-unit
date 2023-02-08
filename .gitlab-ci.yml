@@ -11,3 +11,7 @@ build:
     - docker tag ${CI_APPLICATION_REPOSITORY}:${CI_APPLICATION_TAG} ${CI_REGISTRY_IMAGE}:latest
     - docker push ${CI_APPLICATION_REPOSITORY}:${CI_APPLICATION_TAG}
     - docker push ${CI_REGISTRY_IMAGE}:latest
+    # login and push to dockerhub registry
+    - docker login -u ${DOCKERHUB_USER} -p ${DOCKERHUB_PASS}
+    - docker tag ${CI_APPLICATION_REPOSITORY}:${CI_APPLICATION_TAG} aapjeisbaas/wp-nginx-unit:latest
+    - docker push aapjeisbaas/wp-nginx-unit:latest

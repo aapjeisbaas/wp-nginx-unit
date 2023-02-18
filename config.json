@@ -65,9 +65,9 @@
                 }
             },
             "processes": {
-                "max": 16,
+                "max": 10,
                 "spare": 2,
-                "idle_timeout": 60
+                "idle_timeout": 300
             },
             "options": {
                 "file": "/etc/php.ini",
@@ -75,7 +75,8 @@
                     "upload_max_filesize": "25M",
                     "post_max_size": "25M",
                     "max_execution_time": "300",
-                    "expose_php": "0"
+                    "expose_php": "0",
+                    "memory_limit": "256M"
                 },
                 "user": {
                     "display_errors": "1"

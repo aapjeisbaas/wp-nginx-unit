@@ -64,31 +64,37 @@
                     "script": "index.php"
                 }
             },
+            "limits": {
+                "requests": 1000,
+                "timeout": 60
+            },
             "processes": {
-                "max": 10,
-                "spare": 2,
+                "max": 20,
+                "spare": 5,
                 "idle_timeout": 300
             },
+            "user": "unit",
+            "group": "unit",
+            "working_directory": "/var/www/",
             "options": {
                 "file": "/etc/php.ini",
-                "admin": {
+                "user": {
                     "upload_max_filesize": "25M",
                     "post_max_size": "25M",
                     "max_execution_time": "300",
-                    "expose_php": "0",
                     "memory_limit": "256M",
-                    "opcache.enable": "1",
+                    "opcache.jit_buffer_size":"50M",
                     "opcache.interned_strings_buffer": "64",
                     "opcache.max_accelerated_files": "100000",
                     "opcache.memory_consumption": "128",
                     "opcache.save_comments": "1",
                     "opcache.revalidate_freq": "0",
                     "opcache.validate_timestamps": "0",
-                    "opcache.max_wasted_percentage": "10",
-                    "apc.enable_cli": "1"
+                    "opcache.max_wasted_percentage": "10"
                 },
-                "user": {
-                    "display_errors": "1"
+                "admin": {
+                    "display_errors": "0",
+                    "expose_php": "0"
                 }
             }
         }

@@ -38,3 +38,22 @@ define( 'WP_SITEURL', 'https://example.com' );
 
 cd /var/www/ ; wp --allow-root search-replace 'https://dev.example.com' 'https://example.com' --skip-columns=guid
 ```
+
+
+
+## optimization
+Post revisions
+```
+define( ‘WP_POST_REVISIONS’, false ); << wp-config.php
+
+wp post list --post_type='revision' --format=ids
+
+wp post delete $(wp post list --post_type='revision' --format=ids)
+```
+
+Cron jobs (cron runs every 50 seconds automatically)
+```
+# disable cron triggers from http requests
+define( 'DISABLE_WP_CRON', true );
+```
+

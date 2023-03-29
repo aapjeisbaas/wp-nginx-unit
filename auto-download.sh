@@ -29,3 +29,8 @@ fi
 
 
 curl_put /config.json "config"
+
+# start backgroud cron runner within a minute of starting the container
+# random start moment to reduce cron run collisions on larger deployments 
+sleep $((1 + RANDOM % 60)) ; while true; do wp --path="/var/www/" --allow-root cron event run --due-now --quiet --no-color ;sleep 50; done&
+

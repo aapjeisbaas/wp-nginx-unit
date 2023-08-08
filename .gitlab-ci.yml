@@ -10,8 +10,8 @@ build:
     - docker build -t ${CI_APPLICATION_REPOSITORY}:${CI_APPLICATION_TAG} .
     - docker tag ${CI_APPLICATION_REPOSITORY}:${CI_APPLICATION_TAG} ${CI_REGISTRY_IMAGE}:latest
     - docker push ${CI_APPLICATION_REPOSITORY}:${CI_APPLICATION_TAG}
-    - docker push ${CI_REGISTRY_IMAGE}:latest
+    - if [ "$CI_COMMIT_REF_NAME" = "main" ]; then docker push ${CI_REGISTRY_IMAGE}:latest ; fi
     # login and push to dockerhub registry
     - docker login -u ${DOCKERHUB_USER} -p ${DOCKERHUB_PASS}
     - docker tag ${CI_APPLICATION_REPOSITORY}:${CI_APPLICATION_TAG} aapjeisbaas/wp-nginx-unit:latest
-    - docker push aapjeisbaas/wp-nginx-unit:latest
+    - if [ "$CI_COMMIT_REF_NAME" = "main" ]; then docker push aapjeisbaas/wp-nginx-unit:latest ; fi

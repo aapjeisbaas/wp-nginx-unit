@@ -34,3 +34,8 @@ curl_put /config.json "config"
 # random start moment to reduce cron run collisions on larger deployments 
 while true; do sleep $((1 + RANDOM % 20));  wp --path="/var/www/" --allow-root cron event run --due-now --no-color | grep -ve 'Success: Executed a total of';sleep 35; done&
 
+# make sure files are always owned by unit
+# run chown now in the background
+`find /var/www -not -user unit -execdir chown unit:unit {} \+`&
+# run chown at least once every 10 hours in the background
+while true; do sleep $((1 + RANDOM % 36000)); find /var/www -not -user unit -execdir chown unit:unit {} \+ ; done&

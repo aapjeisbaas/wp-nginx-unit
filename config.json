@@ -79,8 +79,8 @@
             "options": {
                 "file": "/etc/php.ini",
                 "user": {
-                    "upload_max_filesize": "25M",
-                    "post_max_size": "25M",
+                    "upload_max_filesize": "125M",
+                    "post_max_size": "125M",
                     "max_execution_time": "300",
                     "memory_limit": "256M",
                     "opcache.jit_buffer_size":"50M",
